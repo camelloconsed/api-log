@@ -7,8 +7,8 @@ export default () => {
 
   return {
     test: loggerHandler.test,
-    getAll: loggerHandler.getAll,
-    getLog: loggerHandler.get,
+    list: loggerHandler.list,
+    show: loggerHandler.show,
     store: loggerHandler.store,
     update: loggerHandler.update,
     delete: loggerHandler.delete,
