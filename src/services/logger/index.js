@@ -7,5 +7,10 @@ export default () => {
 
   return {
     test: loggerHandler.test,
+    getAll: loggerHandler.getAll,
+    getLog: loggerHandler.get,
+    store: loggerHandler.store,
+    update: loggerHandler.update,
+    delete: loggerHandler.delete,
   };
 };
