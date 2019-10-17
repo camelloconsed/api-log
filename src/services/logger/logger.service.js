@@ -3,10 +3,10 @@ const axios = require('axios');
 export default () => {
   const logger = {};
 
-  logger.getLog = async (params) => {
+  logger.show = async (params) => {
     console.log(params);
   };
-  logger.getAll = async (params) => {
+  logger.list = async (params) => {
     console.log(params);
   };
   logger.store = async (params) => {

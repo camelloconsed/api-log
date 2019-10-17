@@ -8,11 +8,11 @@ export default () => {
   const routes = new KoaRouter();
   /* Get All Logs */
   routes.get('/', async (ctx) => {
-    ctx.body = await logger.getAll(ctx);
+    ctx.body = await logger.list(ctx);
   });
   /* Get Especific log */
   routes.get('/log/:logID', koaBody, async (ctx) => {
-    ctx.body = await logger.getLog(koaBody, ctx);
+    ctx.body = await logger.show(koaBody, ctx);
   });
   /* Store Log */
   routes.post('/log', koaBody, async (ctx) => {
