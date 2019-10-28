@@ -33,42 +33,6 @@ Obtenemos la última imagen de MongoDB ejecutando el comando a continuación
 ```
 docker pull mongo:latest
 ```
-Creamos el archivo init-mongo.js antes de la carpeta raiz del proyecto y luego editamos.
-
-```
-db.createUser(
-    {
-        user : "admin",
-        pwd : "123123",
-        roles: [
-            {
-                role : "readWrite",
-                db : "logDB"
-            }
-        ]
-    }
-)
-```
-
-Creamos el archivo docker-compose.yml antes de la carpeta raíz y luego lo editamos con los siguientes datos
-
-```
-version: '3'
-services:
-  database:
-    image: 'mongo'
-    container_name: 'logDB'
-    environment:
-      ['MONGO_INITDB_DATABASE=logDB',
-      'MONGO_INITDB_ROOT_USERNAME=admin',
-      'MONGO_INITDB_ROOT_PASSWORD=123123']
-    volumes:
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-      - ./mongo-volume:/data/db
-    ports:
-      - '27017-27019:27017-27019'
-```
-
 Luego corremos el archivo docker-compose con el siguiente comando:
 
 ```
