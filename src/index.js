@@ -12,7 +12,7 @@ const router = new KoaRouter();
 const logger = Log();
 
 mongoose
-  .connect('mongodb://juako:123123@127.0.0.1:27017/logDB', {
+  .connect('mongodb://admin:123123@127.0.0.1:27017/logDB', {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
