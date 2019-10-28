@@ -3,7 +3,6 @@ import koaBody from 'koa-body';
 import json from 'koa-json';
 import Routes from './routes';
 
-
 const Koa = require('koa');
 const KoaRouter = require('koa-router');
 const koaBody = require('koa-body');
