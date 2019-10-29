@@ -3,9 +3,32 @@ import koaBody from 'koa-body';
 import json from 'koa-json';
 import Routes from './routes';
 
+const Koa = require('koa');
+const KoaRouter = require('koa-router');
+const koaBody = require('koa-body');
+const json = require('koa-json');
+const mongoose = require('mongoose');
 
 const app = new Koa();
-const routes = Routes();
+const router = new KoaRouter();
+
+const logger = Log();
+
+mongoose
+  .connect('mongodb://admin:123123@127.0.0.1:27017/logDB', {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  })
+  .then(() => console.log('DB Connected!'))
+  .catch(err => {
+    console.log('DB disconnected');
+  });
+
+app.use(json());
+
+router.post('/test', koaBody(), ctx => {
+  ctx.body = logger.test(ctx);
+});
 
 app
   .use(json())
@@ -13,5 +36,5 @@ app
   .use(routes.routes())
   .use(routes.allowedMethods());
 
-const server = app.listen('5001');
+const server = app.listen('3001');
 console.log(`Server running on port ${server.address().port} ...`);
