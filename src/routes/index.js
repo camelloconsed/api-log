@@ -1,7 +1,9 @@
 import KoaRouter from 'koa-router';
 import Logger from '../services/logger';
 
-const koaBody = require('koa-body')({ multipart: true });
+const koaBody = require('koa-body')({
+  multipart: true,
+});
 
 export default () => {
   const logger = Logger();

@@ -9,7 +9,7 @@ export default () => {
   logger.list = async (params) => {
     return params;
   };
-  logger.store = async (params) => {
+  logger.store = async params => {
     return params;
   };
   logger.update = async (params) => {

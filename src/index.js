@@ -1,21 +1,17 @@
 import Koa from 'koa';
-import koaBody from 'koa-body';
+import bodyParser from 'koa-body';
 import json from 'koa-json';
+import mongoose from 'mongoose';
 import Routes from './routes';
-
-const Koa = require('koa');
-const KoaRouter = require('koa-router');
-const koaBody = require('koa-body');
-const json = require('koa-json');
-const mongoose = require('mongoose');
+import Log from './services/logger';
 
 const app = new Koa();
-const router = new KoaRouter();
+const routes = Routes();
 
 const logger = Log();
 
 mongoose
-  .connect('mongodb://admin:123123@127.0.0.1:27017/logDB', {
+  .connect('mongodb://juako:123123@127.0.0.1:27017/logDB', {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
@@ -26,13 +22,13 @@ mongoose
 
 app.use(json());
 
-router.post('/test', koaBody(), ctx => {
+routes.post('/test', ctx => {
   ctx.body = logger.test(ctx);
 });
 
 app
   .use(json())
-  .use(koaBody())
+  .use(bodyParser())
   .use(routes.routes())
   .use(routes.allowedMethods());
 
