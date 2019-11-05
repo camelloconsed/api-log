@@ -5,10 +5,17 @@ import mongoose from 'mongoose';
 import Routes from './routes';
 import Log from './services/logger';
 
+require('dotenv').config();
+
+
 const app = new Koa();
 const routes = Routes();
-
 const logger = Log();
+const Sentry = require('@sentry/node');
+
+if (process.env.ENVIRONMENT === 'production') {
+  Sentry.init({ dsn: process.env.SENTRY });
+}
 
 mongoose
   .connect('mongodb://juako:123123@127.0.0.1:27017/logDB', {

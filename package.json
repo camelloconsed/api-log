@@ -20,12 +20,13 @@
     "npm": ">= 5.0.0"
   },
   "dependencies": {
+    "@sentry/node": "^5.7.1",
     "aws-sdk": "^2.529.0",
     "axios": "^0.19.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
-    "dotenv": "^8.1.0",
+    "dotenv": "^8.2.0",
     "eslint": "^6.3.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
