@@ -39,6 +39,12 @@ Luego corremos el archivo docker-compose con el siguiente comando:
 docker-compose up -d
 ```
 
+Finalmente corremos el siguiente comando para lanzar la api
+
+```
+npm run dev
+```
+
 Con esto tendremos la API configurada y lista para iniciar.
 
 ## Deployment
