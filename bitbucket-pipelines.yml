@@ -3,14 +3,6 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-#image: atlassian/default-image:2
-
-#pipelines:
-#  default:
-#    - step:
-#        script:
-#          - echo "Everything is awesome!"
-          
 image: node:8.16
 
 pipelines:
@@ -18,11 +10,11 @@ pipelines:
     - step:
         name: lint
         script: 
-        - npm install 
+        - npm install
         - node_modules/.bin/eslint src
     - step:
         name: build
         script:
-          - npm install babel-cli babel-preset-env babel-preset-stage-3
+          - npm install
           - rm -rf dist
           - node_modules/.bin/babel src -d dist
