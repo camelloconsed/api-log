@@ -10,7 +10,6 @@ export default () => {
   const routes = new KoaRouter();
   /* Get All Logs */
   routes.get('/', async (ctx) => {
-    console.log(ctx);
     ctx.body = await logger.list(ctx);
   });
   /* Get Especific log */
@@ -27,7 +26,6 @@ export default () => {
   });
   /* Delete Log */
   routes.delete('/log/:logID', async (ctx) => {
-    console.log('aaaa');
     ctx.body = await logger.delete(koaBody, ctx);
   });
   return routes;
