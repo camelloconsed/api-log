@@ -1,7 +1,6 @@
-// import validator from '../../validator';
+import validator from '../../validator';
 // import getSchema from '../../schemes/logger/get';
-// import storeSchema from '../../schemes/logger/store';
-
+import storeSchema from '../../schemes/logger/store';
 
 export default ({ loggerService }) => {
   const logger = {};
@@ -9,6 +8,18 @@ export default ({ loggerService }) => {
   logger.test = (ctx) => loggerService.test(ctx);
   logger.show = (ctx) => loggerService.show(ctx);
   logger.list = (ctx) => loggerService.list(ctx);
-  logger.store = (koaBody, ctx) => loggerService.store(ctx.request.body.user);
+  logger.store = (koaBody, ctx) => validator(
+    storeSchema, {
+      user: ctx.request.body.user,
+      idMachine: ctx.request.body.idMachine,
+      message: ctx.request.body.message,
+      method: ctx.request.body.method,
+      apiID: ctx.request.body.apiID,
+      type: ctx.request.body.type,
+      actionType: ctx.request.body.actionType,
+    },
+    loggerService.store,
+  );
+
   return logger;
 };
