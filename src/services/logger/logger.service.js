@@ -1,3 +1,5 @@
+import logModel from '../../../models/log';
+
 const axios = require('axios');
 
 export default () => {
@@ -10,6 +12,7 @@ export default () => {
     return params;
   };
   logger.store = async params => {
+    console.log(params.body.test);
     return params;
   };
   logger.update = async (params) => {
