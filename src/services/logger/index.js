@@ -10,7 +10,5 @@ export default () => {
     list: loggerHandler.list,
     show: loggerHandler.show,
     store: loggerHandler.store,
-    update: loggerHandler.update,
-    delete: loggerHandler.delete,
   };
 };

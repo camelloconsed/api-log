@@ -10,7 +10,5 @@ export default ({ loggerService }) => {
   logger.show = (ctx) => loggerService.show(ctx);
   logger.list = (ctx) => loggerService.list(ctx);
   logger.store = (koaBody, ctx) => loggerService.store(ctx.request.body.user);
-  logger.update = (koaBody, ctx) => loggerService.update(ctx.request.body.user);
-  logger.delete = (ctx) => loggerService.delete(ctx);
   return logger;
 };
