@@ -20,13 +20,5 @@ export default () => {
   routes.post('/log', koaBody, async (ctx) => {
     ctx.body = await logger.store(koaBody, ctx);
   });
-  /* Update Log */
-  routes.put('/log/:logID', async (ctx) => {
-    ctx.body = await logger.update(koaBody, ctx);
-  });
-  /* Delete Log */
-  routes.delete('/log/:logID', async (ctx) => {
-    ctx.body = await logger.delete(koaBody, ctx);
-  });
   return routes;
 };
