@@ -1,5 +1,9 @@
 import logModel from '../../../models/log';
 
+import Response from '../../responses';
+import Consts from '../../config/constants';
+
+const CONSTS = Consts();
 const axios = require('axios');
 
 export default () => {
@@ -12,8 +16,19 @@ export default () => {
     return params;
   };
   logger.store = async params => {
-    console.log(params.body.test);
-    return params;
+    try {
+      return new Response(
+        CONSTS.RESPONSES.LOGS.STORE.SUCCESS,
+        CONSTS.HTTP.CODES.OK,
+        'payload',
+      );
+    } catch (err) {
+      return new Response(
+        CONSTS.RESPONSES.LOGS.STORE.ERROR,
+        CONSTS.HTTP.CODES.INTERNAL_SERVER_ERROR,
+        err.message,
+      );
+    }
   };
   logger.update = async (params) => {
     return params;
