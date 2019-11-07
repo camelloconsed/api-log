@@ -27,7 +27,11 @@ const logSchema = new mongoose.Schema({
   },
   date: {
     type: Date,
-  }
+  },
+  user: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model('Log', logSchema);

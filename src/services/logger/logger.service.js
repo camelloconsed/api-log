@@ -60,6 +60,7 @@ export default () => {
       const { actionType } = params;
       const { apiId } = params;
       const { message } = params;
+      const { user } = params;
       const date = new Date();
       const logDetail = {
         type,
@@ -69,6 +70,7 @@ export default () => {
         apiId,
         message,
         date,
+        user,
       };
 
       const log = new Log(logDetail);
