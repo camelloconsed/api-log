@@ -1,12 +1,11 @@
 const schema = {
   user: { type: 'string' },
   idMachine: { type: 'string' },
-  msj: { type: 'string' },
+  message: { type: 'string' },
   method: { type: 'string' },
   apiID: { type: 'string' },
   type: { type: 'string' },
-  action: { type: 'string' },
-  dateTime: { type: 'string' },
+  actionType: { type: 'string' },
 };
 
 export default schema;
