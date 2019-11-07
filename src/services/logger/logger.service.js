@@ -54,14 +54,13 @@ export default () => {
   };
   logger.store = async (params) => {
     try {
-      const { type } = params.request.body;
-      const { idMachine } = params.request.body;
-      const { method } = params.request.body;
-      const { actionType } = params.request.body;
-      const { apiId } = params.request.body;
-      const { message } = params.request.body;
+      const { type } = params;
+      const { idMachine } = params;
+      const { method } = params;
+      const { actionType } = params;
+      const { apiId } = params;
+      const { message } = params;
       const date = new Date();
-      console.log(date);
       const logDetail = {
         type,
         idMachine,
