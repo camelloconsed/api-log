@@ -9,6 +9,6 @@ export default ({ loggerService }) => {
   logger.test = (ctx) => loggerService.test(ctx);
   logger.show = (ctx) => loggerService.show(ctx);
   logger.list = (ctx) => loggerService.list(ctx);
-  logger.store = (koaBody, ctx) => loggerService.store(ctx.request.body.user);
+  logger.store = (koaBody, ctx) => loggerService.store(ctx);
   return logger;
 };
