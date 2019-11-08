@@ -11,6 +11,6 @@ export default async (schema, params, fn) => {
       return fn(params);
     }
   } else {
-    throw new ValidationError(validationResult.map(vr => vr.message), 400);
+    return new ValidationError(validationResult.map(vr => vr.message), 400);
   }
 };

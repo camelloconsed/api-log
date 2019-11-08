@@ -18,13 +18,13 @@ if (process.env.ENVIRONMENT === 'production') {
 }
 
 mongoose
-  .connect('mongodb://juako:123123@127.0.0.1:27017/logDB', {
+  .connect(`mongodb://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBHOST}/${process.env.DBNAME}`, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
   .then(() => console.log('DB Connected!'))
   .catch(err => {
-    console.log('DB disconnected');
+    throw err;
   });
 
 app.use(json());

@@ -9,12 +9,13 @@ export default ({ loggerService }) => {
   logger.show = (ctx) => loggerService.show(ctx);
   logger.list = (ctx) => loggerService.list(ctx);
   logger.store = (koaBody, ctx) => validator(
-    storeSchema, {
+    storeSchema,
+    {
       user: ctx.request.body.user,
       idMachine: ctx.request.body.idMachine,
       message: ctx.request.body.message,
       method: ctx.request.body.method,
-      apiID: ctx.request.body.apiID,
+      apiId: ctx.request.body.apiId,
       type: ctx.request.body.type,
       actionType: ctx.request.body.actionType,
     },
