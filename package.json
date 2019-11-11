@@ -11,7 +11,8 @@
     "clean": "rm -rf dist",
     "lint": "eslint src",
     "babel": "babel src -d dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seeDocs": "cross-env npx serve -p ${DOCSPORT:-9001} docs"
   },
   "author": "alvarojasdev@gmail.com",
   "license": "MIT",
