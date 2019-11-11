@@ -65,8 +65,6 @@ export default () => {
         type, idMachine, method, actionType, apiId, message, user,
       } = params;
 
-      console.log(idMachine);
-
       const date = new Date();
       const logDetail = {
         type,
