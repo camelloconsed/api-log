@@ -1,0 +1,136 @@
+openapi: 3.0.0
+info:
+  title: Log
+  description: This is the API documentation for the Log entity
+  version: '1.0.0'
+
+servers:
+  - url: https://PROD
+    description: Production environment
+  - url: https://STAGE
+    description: Stage environement
+  - url: https://DEV
+    description: Development environment
+
+security:
+  - BearerAuth: []
+
+components:
+  schemas:
+    Response:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        payload:
+          type: object
+
+paths:
+  /:
+    get:
+      summary: Log list
+      description: Returns an object of all logs.
+      responses:
+        '200':
+          description: The list of logs within the payload of the response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+              example:
+                code: 200
+                message: Logs listed successfully.
+                payload: [
+                  {
+                    _id: "5dc5bbab90ab7c2644ebafde",
+                    type: "test4",
+                    idMachine: "localhost",
+                    method: "invoke",
+                    actionType: "createDoc",
+                    apiId: "apichain",
+                    message: "error",
+                    date: "2019-11-08T19:02:03.638Z",
+                    user: "test1",
+                    __v: 0
+                  },
+                  {
+                    _id: "5dc5bb9e90ab7c2644ebafdd",
+                    type: "test4",
+                    idMachine: "localhost",
+                    method: "invoke",
+                    actionType: "createDoc",
+                    apiId: "apichain",
+                    message: "error",
+                    date: "2019-11-08T19:01:50.793Z",
+                    user: "test1",
+                    __v: 0
+                  }
+                ]
+        '500':
+          description: In case of the server has an error, InternalServer Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+              example:
+                code: 500
+                message: Error listing logs.
+                payload: 
+                  error: Various errors.
+  /logs:
+    post:
+      summary: Store log
+      description: Returns an object of the log data.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: string
+                idMachine:
+                  type: string
+                message:
+                  type: string
+                method:
+                  type: string
+                apiID:
+                  type: string
+                type:
+                  type: string
+                actionType:
+                  type: string
+            example:
+              user: test1
+              idMachine: localhost 
+              message: error
+              method: invoke
+              apiID: apiLog
+              type: test3
+              actionType: createLog
+      responses:
+        '200':
+          description: The object of the log data within the payload of the response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+              example:
+                code: 200
+                message: Log stored successfully.
+                payload: Log successfully saved.
+        '500':
+          description: In case of the server has an error, InternalServer Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+              example:
+                code: 500
+                message: Error storing log.
+                payload: 
+                  error: Various errors.  
