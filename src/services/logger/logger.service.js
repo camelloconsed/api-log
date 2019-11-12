@@ -39,6 +39,13 @@ export default () => {
           date: -1,
         })
         .exec();
+      if (startDate > endDate) {
+        throw Error('The startDate must be less than the final date');
+      }
+      if (!logs) {
+        throw Error('Logs not found in this date range');
+      }
+
       return new Response(
         CONSTS.RESPONSES.LOGS.LIST.SUCCESS,
         CONSTS.HTTP.CODES.OK,
@@ -57,6 +64,7 @@ export default () => {
       const {
         type, idMachine, method, actionType, apiId, message, user,
       } = params;
+
       const date = new Date();
       const logDetail = {
         type,

@@ -30,6 +30,23 @@ components:
 
 paths:
   /:
+    parameters:
+    - name: startDate
+      in: path
+      description: The initial date to search
+      required: true
+    - name: endDate
+      in: path
+      description: The final date to search
+      required: true
+    - name: page
+      in: path
+      description: The initial date to search
+      required: false
+    - name: limit
+      in: path
+      description: The initial date to search
+      required: false
     get:
       summary: Log list
       description: Returns an object of all logs.
