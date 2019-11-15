@@ -17,7 +17,7 @@ export default () => {
     ctx.body = await logger.show(koaBody, ctx);
   });
   /* Store Log */
-  routes.post('/log', koaBody, async (ctx) => {
+  routes.post('/log', async (ctx) => {
     ctx.body = await logger.store(koaBody, ctx);
   });
   return routes;
