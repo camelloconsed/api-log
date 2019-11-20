@@ -19,7 +19,6 @@ export default () => {
     ctx.body = await logger.store(
       ctx,
     );
-    console.log(ctx.body);
   });
   return routes;
 };
