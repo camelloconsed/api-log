@@ -1,9 +1,7 @@
 import KoaRouter from 'koa-router';
 import Logger from '../services/logger';
 
-const koaBody = require('koa-body')({
-  multipart: true,
-});
+const koaBody = require('koa-body');
 
 export default () => {
   const logger = Logger();
@@ -17,8 +15,10 @@ export default () => {
     ctx.body = await logger.show(koaBody, ctx);
   });
   /* Store Log */
-  routes.post('/log', async (ctx) => {
-    ctx.body = await logger.store(koaBody, ctx);
+  routes.post('/log', async ctx => {
+    ctx.body = await logger.store(
+      ctx,
+    );
   });
   return routes;
 };
