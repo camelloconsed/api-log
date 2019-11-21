@@ -1,5 +1,5 @@
 const schema = {
-  user: { type: 'string', empty: false },
+  user: { type: 'string', empty: true },
   idMachine: { type: 'string', empty: false },
   message: { type: 'string', empty: false },
   method: { type: 'string', empty: false },
