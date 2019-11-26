@@ -39,5 +39,5 @@ app
   .use(routes.routes())
   .use(routes.allowedMethods());
 
-const server = app.listen('6001');
+const server = app.listen('7000');
 console.log(`Server running on port ${server.address().port} ...`);
